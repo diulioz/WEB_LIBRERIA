@@ -1,0 +1,44 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>{% block titulo %} {% endblock %}</title>
+    <!--  -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="nav navbar-nav">
+            <a class="nav-item nav-link active" href="#">INICIO</a>
+            <a class="nav-item nav-link active" href="#">LIBROS</a>
+            <a class="nav-item nav-link active" href="#">NOSOTROS</a>
+            
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {% block contenido %} {% endblock %}
+            </div>
+        </div>
+    </div>
+    <header>
+        <!--place navbar here-->
+    </header>
+    <main>
+
+    </main>
+
+    <footer>
+        <!--  -->
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYiZh1Z86+fzT" crossorigin="anonymous">
+
+    </script>
+</body>
+</html>
