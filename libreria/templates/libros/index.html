@@ -20,7 +20,7 @@
 
     <div class="card">
         <div class="card-header">
-            Listar Libros
+            <a name="" id="" class="btn btn-primary" href="{% url 'crear' %}" role="button">Agregar nuevo libro</a>
         </div>
     
         <div class="card-body">
@@ -42,7 +42,10 @@
                             <td>Aprende Django</td>
                             <td>imagen.jpg</td>
                             <td>Libro que explica todo sobre el</td>
-                            <td>Editar | Eliminar</td>
+                            <td>
+                                <a name="" id="" class="btn btn-primary" href="{% url 'editar'%}" role="button">Editar</a>
+                                <a name="" id="" class="btn btn-primary" href="#" role="button">Borrar</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
