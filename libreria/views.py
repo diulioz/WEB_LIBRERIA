@@ -23,3 +23,17 @@ def crear(request):
     return render(request, 'libros/crear.html' , {'formulario': formulario})
 def editar(request):
     return render(request, 'libros/editar.html')
+
+def eliminar(request,idd):
+    libro.objects.get(idd=idd).delete()
+    # return redirect('/index.html')
+    return render(request, 'libros/index.html')
+
+# def actualizar(request):
+#     idd = request.POST['idd']
+#     titulo = request.POST['titulo']
+#    # imagen = request.FILES['imagen']
+#     descripcion = request.POST['descripcion']
+#     Libro.objects.filter(idd=idd).update(titulo=titulo,descripcion=descripcion)
+    
+#     return redirect('/index.html')
