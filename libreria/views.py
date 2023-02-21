@@ -32,7 +32,6 @@ def editar(request, id):
 
 def borrar(request, id):
     libro1 = libro.objects.get(id=id)
-    print(id)
     libro1.delete()
     return redirect('libros')
 
