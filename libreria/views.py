@@ -15,25 +15,24 @@ def nosotros(request):
 def libros(request):
     libros = libro.objects.all() 
     return render(request, 'libros/index.html' , {'Libros':libros})
+
 def crear(request):
     formulario =LibroForm(request.POST or None, request.FILES or None)
     if formulario.is_valid():
         formulario.save()
         return redirect('libros')
     return render(request, 'libros/crear.html' , {'formulario': formulario})
-def editar(request):
-    return render(request, 'libros/editar.html')
 
-def eliminar(request,idd):
-    libro.objects.get(idd=idd).delete()
-    # return redirect('/index.html')
-    return render(request, 'libros/index.html')
+def editar(request, id):
+    libro1 = libro.objects.get(id=id)
+    formulario =LibroForm(request.POST or None, request.FILES or None, instance=libro1)
+    if formulario.is_valid and request.POST:
+        formulario.save()
+    return render(request, 'libros/editar.html',{'formulario':formulario})
 
-# def actualizar(request):
-#     idd = request.POST['idd']
-#     titulo = request.POST['titulo']
-#    # imagen = request.FILES['imagen']
-#     descripcion = request.POST['descripcion']
-#     Libro.objects.filter(idd=idd).update(titulo=titulo,descripcion=descripcion)
-    
-#     return redirect('/index.html')
+def borrar(request, id):
+    libro1 = libro.objects.get(id=id)
+    print(id)
+    libro1.delete()
+    return redirect('libros')
+
