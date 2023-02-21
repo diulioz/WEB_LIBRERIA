@@ -11,6 +11,6 @@ class libro(models.Model):
         fila = "Titulo: " + self.titulo + " - " + "Descripción: " + self.descripcion
         return fila
 
-    def delete(self, using=None, keep_parents=False):
+    def borrar(self, using=None, keep_parents=False):
         self.imagen.storage.delete(self.imagen.name)
         super().delete
