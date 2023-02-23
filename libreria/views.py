@@ -3,15 +3,21 @@ from django.http import HttpResponse
 from .models import libro
 from .forms import LibroForm
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login,logout
+from django.contrib import messages
 
 # Create your views here.
 
+# @login_required
 def inicio(request):
     return render(request, 'paginas/inicio.html')
 
+@login_required
 def nosotros(request):
     return render(request, 'paginas/nosotros.html')
 
+@login_required
 def libros(request):
     libros = libro.objects.all() 
     return render(request, 'libros/index.html' , {'Libros':libros})
@@ -34,4 +40,9 @@ def borrar(request, id):
     libro1 = libro.objects.get(id=id)
     libro1.delete()
     return redirect('libros')
+
+def salir(request):
+    logout(request)
+    messages.info(request,message="Tu sesión se ha cerrado correctamente")
+    return redirect('/')
 
