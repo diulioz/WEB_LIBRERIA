@@ -43,8 +43,8 @@ def borrar(request, id):
 
 def salir(request):
     logout(request)
-    messages.info(request,message="Tu sesión se ha cerrado correctamente")
-    messages.success(request, message="Sesión terminada")
+    messages.info(request,f"Tu sesión se ha cerrado correctamente")
+    # messages.success(request, f"Sesión terminada")
     # return redirect('/')
     return render(request, 'paginas/inicio.html')
 
