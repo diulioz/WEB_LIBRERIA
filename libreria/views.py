@@ -44,5 +44,6 @@ def borrar(request, id):
 def salir(request):
     logout(request)
     messages.info(request,message="Tu sesión se ha cerrado correctamente")
+    messages.success(request, message="Sesión terminada")
     return redirect('/')
 
