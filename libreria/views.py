@@ -17,6 +17,9 @@ def inicio(request):
 def nosotros(request):
     return render(request, 'paginas/nosotros.html')
 
+def empezar(request):
+    return render(request, 'libros/index.html')
+
 @login_required
 def libros(request):
     libros = libro.objects.all() 

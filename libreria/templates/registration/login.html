@@ -21,27 +21,24 @@
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
 
-<!-- <div class="card-body">
-    <h4 class="card-title">Datos del libro</h4>
-    {% include 'libros/formulario.html'%}
-</div>
-<div class="card-footer text-muted">
-</div> -->
-
 <div class="card-body">
     <td>{{ form.username.label_tag}}</td>
+    <br>
     <td>{{form.username}}</td>
 </div>
+<br>
 <div class="card-body">
     <td>{{ form.password.label_tag}}</td>
+    <br>
     <td>{{ form.password }}</td>
 </div>
-
+<br>
 <div>
     <input type="submit" value="login">
     <input type="hidden" name="next" value="{{ next }}">
 </div>
 </form>
+<br>
 {# Assumes you setup the password_reset view in your URLconf #}
 <p><a href="{% url 'password_reset' %}">Lost password</a></p>
 {% endblock %}
